@@ -142,7 +142,8 @@ Faire un premier essai en **mode test** de Stripe avant d'utiliser le vrai lien.
 ## Reste à faire avant le lancement
 
 - [ ] Vraie couverture des *Aquarellistes Anonymes*, texte de présentation, ISBN
-- [ ] Texte de présentation de la maison
+- [x] Phrase d'accueil sur la ligne éditoriale (`index.html`)
+- [ ] Texte de présentation de la maison (`a-propos.html` : histoire et ligne éditoriale)
 - [ ] Mentions légales : SIREN, forme juridique, n° de TVA d'Europera, hébergeur OVH
 - [ ] CGV : tarif et zone de livraison, médiateur de la consommation (obligatoire), relecture
 - [ ] Compte Stripe Europera + lien de paiement du premier livre
