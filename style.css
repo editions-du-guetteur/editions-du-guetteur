@@ -1,14 +1,14 @@
 /* Les Éditions du Guetteur — feuille de style unique */
 
 :root {
-  --papier: #f7f3ec;
-  --papier-2: #efe8dc;
-  --encre: #1f1d1a;
-  --encre-douce: #5b554c;
-  --filet: #d9d0c1;
+  --papier: #eaf3fa;        /* bleu clair */
+  --papier-2: #d9e9f5;
+  --encre: #16263a;
+  --encre-douce: #4a5d72;
+  --filet: #c3d7e8;
   --accent: #2f5d7c;        /* bleu aquarelle */
   --accent-fonce: #234863;
-  --ocre: #c08a3e;
+  --ocre: #9a6a28;
   --largeur: 1040px;
   --serif: "EB Garamond", Garamond, Georgia, serif;
   --sans: "Inter", system-ui, -apple-system, sans-serif;
