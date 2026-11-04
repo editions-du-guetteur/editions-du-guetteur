@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex"><!-- maquette : à retirer au lancement -->
   <title>Catalogue — Les Éditions du Guetteur</title>
-  <meta name="description" content="Le catalogue des Éditions du Guetteur : arts, romans et nouvelles, documents.">
+  <meta name="description" content="Le catalogue des Éditions du Guetteur : arts, nouvelles et récits, documents.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
@@ -35,22 +35,103 @@
     <section class="rubrique" id="arts" aria-labelledby="titre-arts">
       <h2 id="titre-arts">Arts</h2>
       <div class="catalogue">
+        <!-- À PARAÎTRE : le 15 déc. 2026, transformer ce <div> en <a class="fiche" href="livres/…"> et retirer le bandeau -->
+        <div class="fiche fiche-a-paraitre">
+          <div class="vignette">
+            <img class="couverture-img" src="img/repas-de-dessins-couverture.jpg" alt="" width="900" height="900" loading="lazy">
+            <span class="bandeau">À paraître</span>
+          </div>
+          <h3>Repas de Dessins</h3>
+          <p>Jean-Marie Leydier · <time datetime="2026-12-15">15 décembre 2026</time></p>
+        </div>
         <a class="fiche" href="livres/les-aquarellistes-anonymes.html">
           <img class="couverture-img" src="img/aquarellistes-couverture.jpg" alt="" width="747" height="1000" loading="lazy">
           <h3>Les Aquarellistes Anonymes</h3>
           <p>Patrice Caumon · 25 €</p>
+          <p class="details-fiche">100 exemplaires numérotés · 116 pages<br>Frais de port : 8 € (Colissimo, France métropolitaine)</p>
         </a>
       </div>
     </section>
 
-    <section class="rubrique" id="romans-nouvelles" aria-labelledby="titre-romans">
-      <h2 id="titre-romans">Romans/Nouvelles</h2>
-      <p class="vide">Prochainement.</p>
+    <section class="rubrique" id="nouvelles-recits" aria-labelledby="titre-nouvelles">
+      <h2 id="titre-nouvelles">Nouvelles et récits</h2>
+      <div class="catalogue">
+        <!-- À PARAÎTRE : le 1er févr. 2027, transformer ce <div> en <a class="fiche" href="livres/…"> et retirer le bandeau.
+             Couverture dessinée provisoire : la remplacer par un <img class="couverture-img"> quand la vraie sera prête -->
+        <div class="fiche fiche-a-paraitre">
+          <div class="vignette">
+            <div class="couverture" aria-hidden="true">
+              <span class="c-auteur">Jean-Jacques Guilbaud</span>
+              <span class="c-titre">La Saga Guilbaud</span>
+              <span class="c-editeur">Éditions du Guetteur</span>
+            </div>
+            <span class="bandeau bandeau-bas">À paraître</span>
+          </div>
+          <h3>La Saga Guilbaud</h3>
+          <p>Jean-Jacques Guilbaud · <time datetime="2027-02-01">1<sup>er</sup> février 2027</time></p>
+          <p class="details-fiche">Récit</p>
+        </div>
+        <!-- LIVRES TESTS (fictifs) : à retirer avant le lancement (garder La Saga Guilbaud ci-dessus) -->
+        <div class="fiche fiche-test">
+          <div class="vignette">
+            <div class="couverture teinte-ocre" aria-hidden="true">
+              <span class="c-auteur">Claire Arnaudet</span>
+              <span class="c-titre">Les Heures creuses</span>
+              <span class="c-editeur">Éditions du Guetteur</span>
+            </div>
+            <span class="bandeau bandeau-test">Exemple</span>
+          </div>
+          <h3>Les Heures creuses</h3>
+          <p>Claire Arnaudet · 18 €</p>
+          <p class="details-fiche">Nouvelles · 21 × 14 cm, 148 pages</p>
+        </div>
+        <div class="fiche fiche-test">
+          <div class="vignette">
+            <div class="couverture teinte-vert" aria-hidden="true">
+              <span class="c-auteur">Paul Verrier</span>
+              <span class="c-titre">Le Passeur de brume</span>
+              <span class="c-editeur">Éditions du Guetteur</span>
+            </div>
+            <span class="bandeau bandeau-test">Exemple</span>
+          </div>
+          <h3>Le Passeur de brume</h3>
+          <p>Paul Verrier · 20 €</p>
+          <p class="details-fiche">Récit · 21 × 14 cm, 192 pages</p>
+        </div>
+      </div>
     </section>
 
     <section class="rubrique" id="documents" aria-labelledby="titre-documents">
       <h2 id="titre-documents">Documents</h2>
-      <p class="vide">Prochainement.</p>
+      <!-- LIVRES TESTS (fictifs) : à retirer avant le lancement et remettre <p class="vide">Prochainement.</p> -->
+      <div class="catalogue">
+        <div class="fiche fiche-test">
+          <div class="vignette">
+            <div class="couverture teinte-gris" aria-hidden="true">
+              <span class="c-auteur">Henri Malbosc</span>
+              <span class="c-titre">Carnets d'un imprimeur</span>
+              <span class="c-editeur">Éditions du Guetteur</span>
+            </div>
+            <span class="bandeau bandeau-test">Exemple</span>
+          </div>
+          <h3>Carnets d'un imprimeur</h3>
+          <p>Henri Malbosc · 22 €</p>
+          <p class="details-fiche">Témoignage · 23 × 17 cm, 160 pages</p>
+        </div>
+        <div class="fiche fiche-test">
+          <div class="vignette">
+            <div class="couverture" aria-hidden="true">
+              <span class="c-auteur">Marthe Lescure</span>
+              <span class="c-titre">Petite histoire du papier</span>
+              <span class="c-editeur">Éditions du Guetteur</span>
+            </div>
+            <span class="bandeau bandeau-test">Exemple</span>
+          </div>
+          <h3>Petite histoire du papier</h3>
+          <p>Marthe Lescure · 24 €</p>
+          <p class="details-fiche">Essai illustré · 23 × 17 cm, 128 pages</p>
+        </div>
+      </div>
     </section>
   </main>
 

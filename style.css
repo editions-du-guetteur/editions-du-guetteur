@@ -118,6 +118,34 @@ a:hover { color: var(--accent-fonce); }
 .a-la-une .liens { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin: 0; }
 .a-la-une .liens a:not(.bouton) { font-family: var(--sans); font-size: .95rem; }
 
+/* Accueil : prochaine publication */
+
+.a-venir { border-top: 1px solid var(--filet); padding-top: 3rem; }
+.titre-section {
+  font-weight: 400;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  line-height: 1.15;
+  margin: 0 0 2rem;
+}
+.a-venir h3 {
+  font-weight: 400;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.1;
+  margin: 0 0 .3rem;
+}
+.a-venir .sortie {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: .95rem;
+  color: var(--accent-fonce);
+  background: var(--papier-2);
+  border: 1px solid var(--filet);
+  padding: .5rem .9rem;
+  margin: 0;
+}
+.a-venir .a-la-une-couverture,
+.a-venir .a-la-une > div > * { animation: none; }
+
 /* Accueil : apparition en douceur (CSS seul, sans JavaScript) */
 
 @keyframes apparaitre {
@@ -141,6 +169,47 @@ a:hover { color: var(--accent-fonce); }
 @media (prefers-reduced-motion: reduce) {
   .intro-courte h1, .a-la-une-couverture, .a-la-une > div > * { animation: none; }
 }
+
+/* Catalogue : livre à paraître */
+
+.catalogue { align-items: start; }
+.vignette { position: relative; }
+.bandeau {
+  position: absolute;
+  top: .7rem;
+  left: .7rem;
+  font-family: var(--sans);
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--accent);
+  padding: .35rem .6rem;
+}
+.fiche-a-paraitre { cursor: default; }
+.bandeau-bas { top: auto; left: auto; bottom: 2.6rem; right: .7rem; }
+
+/* Livres tests (fictifs, à retirer avant le lancement) */
+.fiche-test { cursor: default; }
+.bandeau-test { background: var(--ocre); top: auto; left: auto; bottom: 2.6rem; right: .7rem; }
+.vignette .bandeau { z-index: 1; }
+.couverture.teinte-ocre::before {
+  background:
+    radial-gradient(ellipse 50% 35% at 35% 60%, rgba(192,138,62,.45), transparent 70%),
+    radial-gradient(ellipse 35% 25% at 70% 70%, rgba(154,106,40,.30), transparent 70%);
+}
+.couverture.teinte-vert::before {
+  background:
+    radial-gradient(ellipse 50% 35% at 40% 60%, rgba(122,150,98,.45), transparent 70%),
+    radial-gradient(ellipse 35% 25% at 70% 50%, rgba(47,93,124,.25), transparent 70%);
+}
+.couverture.teinte-gris::before {
+  background:
+    radial-gradient(ellipse 55% 35% at 45% 62%, rgba(74,93,114,.40), transparent 70%),
+    radial-gradient(ellipse 30% 22% at 70% 72%, rgba(22,38,58,.25), transparent 70%);
+}
+.fiche .details-fiche { font-family: var(--sans); font-size: .8rem; line-height: 1.5; margin-top: .4rem; }
 
 /* Catalogue : rubriques */
 
@@ -296,6 +365,19 @@ a:hover { color: var(--accent-fonce); }
 .texte { max-width: 42rem; padding: 4rem 0 5rem; }
 .texte h1 { font-weight: 400; font-size: 2.4rem; margin: 0 0 2rem; }
 .texte h2 { font-weight: 500; font-size: 1.35rem; margin: 2.2rem 0 .6rem; }
+.texte .chapeau { font-size: 1.4rem; margin-bottom: 1.4rem; }
+.domaines { list-style: none; padding: 0; margin: .4rem 0 1.6rem; display: flex; flex-wrap: wrap; gap: .6rem; }
+.domaines a {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: .9rem;
+  text-decoration: none;
+  color: var(--accent-fonce);
+  background: var(--papier-2);
+  border: 1px solid var(--filet);
+  padding: .45rem .9rem;
+}
+.domaines a:hover { background: var(--filet); }
 
 /* Pied de page */
 
