@@ -41,3 +41,20 @@ Un message bref, dans cet ordre :
 
 Termine par **une seule question** : par quoi veut-il commencer aujourd'hui ? Propose ton conseil en
 premier.
+
+## 5. Nommer la séance
+
+Donne un titre à la séance pour que Thierry et Martin la retrouvent facilement dans la liste à gauche,
+avec l'outil de titre de session (`mcp__ccd_session_mgmt__set_session_title`, à charger avec
+`ToolSearch` s'il n'est pas encore disponible). Format :
+
+`<date> · <modèle> · <sujet>`, par exemple `4 nov. 2026 · Opus 5.5 · Texte du livre`
+
+- **Date** : la date du jour, en français, mois abrégé.
+- **Modèle** : le nom court du modèle qui tourne dans cette séance (celui indiqué dans tes
+  instructions système, par ex. « Opus 5.5 » ou « Sonnet 5.5 »). Ne le devine pas.
+- **Sujet** : 2 à 4 mots en français simple.
+
+Pose d'abord le titre dès le début avec le sujet `Point du jour`, puis renomme la séance dès que Thierry
+a choisi par quoi commencer. Si le sujet change franchement en cours de route, renomme encore. Ne
+commente pas ce changement de titre auprès de Thierry, sauf s'il le demande.
