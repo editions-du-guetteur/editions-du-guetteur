@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex"><!-- maquette : à retirer au lancement -->
+  <title>Les Éditions du Guetteur</title>
+  <meta name="description" content="Les Éditions du Guetteur publient quelques livres par an, en petite série.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="entete">
+    <div class="conteneur">
+      <a class="marque" href="index.html"><small>Les Éditions du</small>Guetteur</a>
+      <nav class="nav">
+        <a href="index.html" aria-current="page">Catalogue</a>
+        <a href="a-propos.html">La maison</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="conteneur">
+    <section class="intro">
+      <p class="surtitre">Maison d'édition</p>
+      <h1>Quelques livres par an, tirés en petite série.</h1>
+      <!-- TEXTE À FOURNIR : une ou deux phrases sur la ligne éditoriale -->
+      <p>Chaque titre est imprimé à une centaine d'exemplaires et vendu directement par la maison.</p>
+    </section>
+
+    <section class="catalogue" aria-label="Catalogue">
+      <!-- Un bloc <a class="fiche"> par livre, le plus récent en premier -->
+      <a class="fiche" href="livres/les-aquarellistes-anonymes.html">
+        <div class="couverture" aria-hidden="true">
+          <span class="c-auteur">Patrice Caumon</span>
+          <span class="c-titre">Les Aquarellistes Anonymes</span>
+          <span class="c-editeur">Éditions du Guetteur</span>
+        </div>
+        <h3>Les Aquarellistes Anonymes</h3>
+        <p>Patrice Caumon · 25 €</p>
+      </a>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur">
+      <span>© 2026 Les Éditions du Guetteur</span>
+      <nav>
+        <a href="a-propos.html">Contact</a>
+        <a href="cgv.html">Conditions de vente</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
