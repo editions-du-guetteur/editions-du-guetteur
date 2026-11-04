@@ -16,8 +16,9 @@
     <div class="conteneur">
       <a class="marque" href="../index.html"><small>Les Éditions du</small>Guetteur</a>
       <nav class="nav">
-        <a href="../index.html">Catalogue</a>
-        <a href="../a-propos.html">La maison</a>
+        <a href="../index.html">Accueil</a>
+        <a href="../a-propos.html">Les éditions du Guetteur</a>
+        <a href="../catalogue.html">Catalogue</a>
       </nav>
     </div>
   </header>
@@ -25,12 +26,7 @@
   <main class="conteneur">
     <article class="livre">
       <div>
-        <!-- Remplacer par <img src="../img/aquarellistes-couverture.jpg" alt="Couverture"> quand la vraie couverture sera là -->
-        <div class="couverture" role="img" aria-label="Couverture : Les Aquarellistes Anonymes, Patrice Caumon">
-          <span class="c-auteur">Patrice Caumon</span>
-          <span class="c-titre">Les Aquarellistes Anonymes</span>
-          <span class="c-editeur">Éditions du Guetteur</span>
-        </div>
+        <img class="couverture-img" src="../img/aquarellistes-couverture.jpg" alt="Couverture : Les aquarellistes anonymes, Patrice Caumon" width="747" height="1000">
       </div>
 
       <div>
@@ -62,6 +58,25 @@
         </figure>
       </div>
     </article>
+
+    <section class="livre-suite" aria-labelledby="titre-auteur">
+      <h2 id="titre-auteur">L'auteur</h2>
+      <!-- TEXTE À FOURNIR : quelques lignes sur Patrice Caumon -->
+      <p>Présentation de Patrice Caumon à venir.</p>
+    </section>
+
+    <section class="livre-suite" aria-labelledby="titre-extraits">
+      <h2 id="titre-extraits">Extraits</h2>
+      <figure class="pages-livre">
+        <img src="../img/aquarellistes-pages.jpg" alt="Double page du livre : courts textes sur l'aquarelle, une nature morte aux figues et un paysage de palmiers" width="1400" height="984" loading="lazy">
+        <figcaption>Une double page du livre.</figcaption>
+      </figure>
+      <div class="extraits">
+        <blockquote><p>Une couleur n'existe que par rapport aux autres et nécessite au moins un fond pour se définir. Elle est sociale.</p></blockquote>
+        <blockquote><p>Sur un chevalet, le châssis est vertical car l'huile colle à la toile. La planche de l'aquarelliste est oblique, pour que l'eau coule sur le papier sans rigoler.<br>Face à la toile, le peintre se penche pour voir le sujet, mais l'aquarelliste n'a juste qu'à lever la tête. Leur position les oppose déjà.</p></blockquote>
+        <blockquote><p>L'aquarelle est une brume transpercée. La couleur transparente laisse passer la lumière du papier et sa blancheur offre une clarté lunaire. Le papier illumine les tons : chaque aquarelle est une enluminure.</p></blockquote>
+      </div>
+    </section>
   </main>
 
   <footer class="pied">

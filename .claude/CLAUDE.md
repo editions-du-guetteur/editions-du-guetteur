@@ -48,7 +48,8 @@ d'hébergement OVH la moins chère.
 
 | Fichier | Rôle |
 |---|---|
-| `index.html` | Accueil + catalogue (une fiche `<a class="fiche">` par livre, le plus récent en premier) |
+| `index.html` | Accueil : titre « Notre dernière publication » + **dernière parution** (bloc `a-la-une`, un seul livre) |
+| `catalogue.html` | Catalogue en trois rubriques : **Arts**, **Romans/Nouvelles**, **Documents** (une fiche `<a class="fiche">` par livre, le plus récent en premier ; « Prochainement » si la rubrique est vide) |
 | `livres/<titre>.html` | Une page par livre, avec le bouton « Acheter » |
 | `a-propos.html` | La maison + contact |
 | `cgv.html`, `mentions-legales.html` | Obligatoires pour vendre en ligne |
@@ -117,14 +118,15 @@ le webhook en place, chaque push sur `main` est en ligne en quelques instants.**
 
 ## Ajouter un livre
 
-Demander à Thierry : titre, auteur, prix TTC, tirage, ISBN, couverture (image), texte de présentation,
+Demander à Thierry : titre, auteur, prix TTC, tirage, ISBN, couverture (image), texte de présentation, quelques lignes sur l'auteur, des extraits (texte et/ou image d'une double page),
 et le lien Stripe (ou le créer avec lui, voir plus bas).
 
 1. Copier `livres/les-aquarellistes-anonymes.html` vers `livres/<titre-en-minuscules-avec-tirets>.html`
    et remplacer tout le contenu (titre, `<title>`, `description`, texte, fiche, prix, lien Stripe).
 2. Déposer la couverture dans `img/` (JPG ou WebP, environ 1 000 px de haut au maximum, la compresser si
    besoin) et remplacer la couverture dessinée en CSS par un `<img>` avec un `alt`.
-3. Ajouter un bloc `<a class="fiche">` **en tête** du catalogue dans `index.html`.
+3. Demander la rubrique (Arts, Romans/Nouvelles ou Documents) et ajouter un bloc `<a class="fiche">` **en tête** de cette rubrique dans `catalogue.html` (retirer « Prochainement » si elle était vide).
+3 bis. Si c'est la dernière parution : remplacer le livre du bloc `a-la-une` dans `index.html` (lien, couverture, titre, auteur, rubrique, tirage, prix).
 4. Vérifier dans le navigateur, sur mobile et sur ordinateur, montrer à Thierry, puis commit et push.
 
 ## Créer le lien Stripe d'un livre (Thierry le fait, tu le guides pas à pas)
@@ -141,11 +143,23 @@ Faire un premier essai en **mode test** de Stripe avant d'utiliser le vrai lien.
 
 ## Reste à faire avant le lancement
 
-- [ ] Vraie couverture des *Aquarellistes Anonymes*, texte de présentation, ISBN
-- [x] Phrase d'accueil sur la ligne éditoriale (`index.html`)
+- [x] Vraie couverture des *Aquarellistes Anonymes* (`img/aquarellistes-couverture.jpg`)
+- [ ] *Aquarellistes Anonymes* : texte de présentation, texte « L'auteur » (Patrice Caumon), ISBN
+- [x] *Aquarellistes Anonymes* : section « Extraits » (double page `img/aquarellistes-pages.jpg` + trois courts textes)
+- [x] Nouvelle structure : menu Accueil / Les éditions du Guetteur / Catalogue, accueil = dernière publication, `catalogue.html` en trois rubriques (à faire relire par Martin)
 - [ ] Texte de présentation de la maison (`a-propos.html` : histoire et ligne éditoriale)
 - [ ] Mentions légales : SIREN, forme juridique, n° de TVA d'Europera, hébergeur OVH
 - [ ] CGV : tarif et zone de livraison, médiateur de la consommation (obligatoire), relecture
 - [ ] Compte Stripe Europera + lien de paiement du premier livre
 - [ ] Hébergement OVH en place (voir « État de l'hébergement »)
 - [ ] Retirer les `noindex`
+
+### Pour Martin (4 nov. 2026)
+
+- Thierry a réorganisé le site : menu Accueil / Les éditions du Guetteur / Catalogue ; l'accueil ne montre
+  plus que la dernière publication (bloc `a-la-une`) ; nouvelle page `catalogue.html` en trois rubriques ;
+  la page du livre a des sections « L'auteur » et « Extraits ». Animations d'apparition de l'accueil en CSS
+  seul (pas de JavaScript), désactivées si `prefers-reduced-motion`. À relire quand tu as un moment.
+- Constaté au passage, non corrigé : toutes les pages chargent les polices Google Fonts (EB Garamond, Inter),
+  ce qui contredit la règle « pas de ressources externes ». À trancher : héberger les polices dans le dépôt
+  ou passer aux polices du système.

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex"><!-- maquette : à retirer au lancement -->
+  <title>Catalogue — Les Éditions du Guetteur</title>
+  <meta name="description" content="Le catalogue des Éditions du Guetteur : arts, romans et nouvelles, documents.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="entete">
+    <div class="conteneur">
+      <a class="marque" href="index.html"><small>Les Éditions du</small>Guetteur</a>
+      <nav class="nav">
+        <a href="index.html">Accueil</a>
+        <a href="a-propos.html">Les éditions du Guetteur</a>
+        <a href="catalogue.html" aria-current="page">Catalogue</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="conteneur">
+    <section class="intro intro-courte">
+      <p class="surtitre">Catalogue</p>
+      <h1>Nos livres</h1>
+    </section>
+
+    <!-- Trois rubriques. Dans chacune, un bloc <a class="fiche"> par livre, le plus récent en premier.
+         Une rubrique sans livre garde son paragraphe « vide ». -->
+
+    <section class="rubrique" id="arts" aria-labelledby="titre-arts">
+      <h2 id="titre-arts">Arts</h2>
+      <div class="catalogue">
+        <a class="fiche" href="livres/les-aquarellistes-anonymes.html">
+          <img class="couverture-img" src="img/aquarellistes-couverture.jpg" alt="" width="747" height="1000" loading="lazy">
+          <h3>Les Aquarellistes Anonymes</h3>
+          <p>Patrice Caumon · 25 €</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="rubrique" id="romans-nouvelles" aria-labelledby="titre-romans">
+      <h2 id="titre-romans">Romans/Nouvelles</h2>
+      <p class="vide">Prochainement.</p>
+    </section>
+
+    <section class="rubrique" id="documents" aria-labelledby="titre-documents">
+      <h2 id="titre-documents">Documents</h2>
+      <p class="vide">Prochainement.</p>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur">
+      <span>© 2026 Les Éditions du Guetteur</span>
+      <nav>
+        <a href="a-propos.html">Contact</a>
+        <a href="cgv.html">Conditions de vente</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
