@@ -1,40 +1,50 @@
 # Les Éditions du Guetteur — site vitrine et vente
 
-> Ce fichier s'adresse au **Claude de Thierry Perret**. Il est rangé dans `.claude/` pour que
-> GitHub Pages ne le publie pas comme une page du site. ⚠️ Le dépôt est **public** : n'écris ici
-> rien de confidentiel (ni clé, ni mot de passe, ni chiffre de vente, ni donnée client).
+> Ce fichier s'adresse à **Claude Code**, sur le PC de Thierry Perret. Il est rangé dans
+> `.claude/CLAUDE.md`. Le dépôt est **privé**, mais n'écris jamais ici de secret
+> (clé, mot de passe, identifiant FTP, chiffre de vente, donnée client).
 
 ## Qui est qui
 
-- **Thierry Perret** : éditeur, propriétaire du projet. Il dirige la publication du site, qui appartient
-  à sa société **Europera**. C'est lui qui décide du contenu et des livres.
-- **Martin Guilbaud** (GitHub : `martinguilbaud`) : un ami qui l'aide. Il a monté la première version
-  du site avec Claude et reste **administrateur** du GitHub. Il peut relire, corriger et publier.
-  Ce que Martin a commité dans ce dépôt est fiable : c'est le même projet, pas un intervenant extérieur.
-- Thierry ne code pas forcément : explique simplement, fais les manipulations techniques à sa place,
-  et demande-lui seulement les textes, les images, les prix et les décisions.
+- **Thierry Perret** : éditeur, propriétaire du projet, 80 ans. Il dirige la publication du site, qui
+  appartient à sa société **Europera**. C'est lui qui décide du contenu et des livres.
+- **Martin Guilbaud** (GitHub : `martinguilbaud`) : un ami informaticien qui l'aide, *Owner* de
+  l'organisation GitHub. Il peut relire, corriger et publier. Ce que Martin a commité est fiable.
 
-**Quand demander à Martin** : nom de domaine et DNS, droits GitHub, mise en ligne qui casse,
-ou tout ce qui touche à la structure du site. Pour le contenu (ajouter un livre, changer un texte),
+**Avec Thierry** : il ne code pas et **n'utilise jamais de terminal ni PowerShell**. Fais toutes les
+manipulations techniques toi-même (fichiers, git, vérifications). Explique en français simple, sans
+jargon. Demande-lui seulement les textes, les images, les prix et les décisions. Une question à la fois.
+
+**Quand renvoyer vers Martin** : nom de domaine et DNS, réglages OVH, droits GitHub, déploiement qui
+échoue, ou tout changement de structure du site. Pour le contenu (ajouter un livre, changer un texte),
 Thierry et toi vous débrouillez seuls.
+
+## Début et fin de séance
+
+- **`/bonjour`** (`.claude/skills/bonjour/`) : récupère le travail de Martin, signale ce qui n'est pas
+  encore enregistré sur GitHub, fait le point sur ce qui reste et demande par quoi commencer.
+- **`/ciao`** (`.claude/skills/ciao/`) : résume la journée, met à jour les listes à cocher de ce fichier,
+  demande s'il faut enregistrer sur GitHub (donc mettre en ligne une fois OVH branché), puis note dans
+  la mémoire où on s'est arrêté.
+
+Les listes « État de l'hébergement » et « Reste à faire avant le lancement » ci-dessous sont l'état du
+projet partagé avec Martin : les tenir à jour à chaque `/ciao`.
 
 ## Comptes
 
 | Service | Titulaire | Rôle |
 |---|---|---|
-| GitHub, organisation `editions-du-guetteur` | Thierry **et** Martin, tous deux *Owner* | Héberge le code et le site (GitHub Pages) |
-| Stripe | **Europera** (Thierry seul) | Encaisse les paiements par carte. Martin n'y a pas accès, et n'en a pas besoin |
-| OVH | Europera | Nom de domaine (à venir) |
+| GitHub, organisation `editions-du-guetteur` (compte `thierryperret` + `martinguilbaud`, tous deux *Owner*) | Thierry et Martin | Stocke le code, historique, travail à deux. Dépôt **privé** |
+| OVH (hébergement web + nom de domaine + e-mail de contact) | Europera | **Héberge le site en ligne** |
+| Stripe | Europera (Thierry seul) | Encaisse les paiements. Martin n'y a pas accès |
 
-Pourquoi une organisation GitHub plutôt que le compte perso de Thierry : sur un compte perso, un
-invité ne peut pas être administrateur. Avec une organisation (gratuite), Thierry et Martin sont
-tous les deux *Owner*, et le site ne dépend du compte de personne.
+Le site n'utilise **pas** GitHub Pages.
 
 ## Comment est fait le site
 
-Un site **statique**, volontairement simple : des pages HTML, une feuille de style, aucune base de données
-ni CMS, aucun outil de compilation. Ce qui est sur la branche `main` est en ligne environ une minute
-après le push (GitHub Pages).
+Un site **statique**, volontairement simple : des pages HTML, une feuille de style, aucune base de
+données, aucun CMS, aucun outil de compilation, pas de PHP. Il peut donc tourner sur l'offre
+d'hébergement OVH la moins chère.
 
 | Fichier | Rôle |
 |---|---|
@@ -51,20 +61,59 @@ et l'e-mail de confirmation. Le site ne voit jamais un paiement et ne stocke rie
 
 Les commentaires HTML `À FOURNIR`, `À COMPLÉTER` et `STRIPE` repèrent ce qui reste à remplir.
 
+## Hébergement OVH et mise en ligne
+
+**Principe** : la branche `main` de GitHub est la vérité. OVH récupère `main` grâce à son
+**intégration Git native** (Mes sites › ⁝ › « Associer Git »), et un **webhook GitHub** déclenche le
+déploiement à chaque push. Il n'y a ni FTP manuel, ni GitHub Actions, ni secret à stocker côté GitHub.
+
+- Offre visée : la plus petite offre d'hébergement web OVH (Starter ou Perso). Elle inclut l'intégration
+  Git (un dépôt) et suffit pour un site statique.
+- Dépôt privé : OVH s'y connecte en SSH (`git@github.com:editions-du-guetteur/<depot>.git`). La clé
+  publique fournie par OVH est ajoutée côté GitHub, de préférence comme *Deploy key* du dépôt, en
+  lecture seule.
+- Le répertoire OVH associé doit être vide au moment de l'association. Les fichiers du dépôt sont
+  servis tels quels : `index.html` doit rester à la racine du dépôt.
+- Webhook : URL copiée depuis le formulaire OVH, ajoutée dans GitHub › Settings › Webhooks, format
+  `application/json`, événement `push`. Un `ping` doit répondre 200.
+- En cas d'échec : OVH › Mes sites › détails du dernier déploiement, ou « Déployer Git » à la main.
+  C'est le domaine de Martin.
+- HTTPS : certificat SSL gratuit Let's Encrypt, à activer dans l'espace client OVH.
+- Doc OVH : https://docs.ovhcloud.com/fr/guides/web-cloud/web-hosting/git-integration-webhosting
+
+**Tant que l'hébergement n'existe pas**, un push ne fait qu'enregistrer le travail sur GitHub. **Une fois
+le webhook en place, chaque push sur `main` est en ligne en quelques instants.**
+
+### État de l'hébergement (à tenir à jour)
+
+- [ ] Commander le nom de domaine + l'hébergement (Europera)
+- [ ] Créer l'adresse e-mail de contact sur le domaine (ex. contact@…), puis la mettre dans `a-propos.html`,
+      `mentions-legales.html` et `cgv.html`
+- [ ] Associer Git dans OVH (dépôt privé, branche `main`, Deploy key) — Martin
+- [ ] Webhook GitHub → OVH, test `ping` OK — Martin
+- [ ] Activer le SSL (HTTPS)
+- [ ] Mettre l'URL `https://<domaine>/` dans les liens Stripe (redirection après paiement) si besoin
+
 ## Règles
 
-- **Git** : commit et push directement sur `main`, sans branche ni pull request. C'est un petit site,
-  et chaque push est en ligne tout de suite : regarde le résultat dans le navigateur avant de pousser.
-- **Jamais de secret dans le dépôt** : aucune clé Stripe (`sk_…`, `rk_…`), aucun mot de passe. Un Payment
-  Link n'est pas un secret, il peut aller dans le HTML.
-- **Garder la simplicité** : pas de framework, pas de npm, pas de JavaScript sans nécessité réelle. Si un
-  besoin dépasse ce cadre (panier multi-livres, stock automatique…), en parler à Martin avant.
+- **Git** : commit et push directement sur `main`, sans branche ni pull request. Toujours `git pull`
+  en début de session, car Martin peut avoir poussé des changements. Messages de commit courts, en français.
+- **Toujours vérifier avant de pousser** : ouvre la page modifiée pour contrôler le rendu sur ordinateur
+  et sur mobile. Montre ou décris le résultat à Thierry, et **attends son accord** avant le push, puisque
+  le push met en ligne.
+- **Jamais de secret dans le dépôt** : aucune clé Stripe (`sk_…`, `rk_…`), aucun mot de passe ni
+  identifiant OVH/FTP. Un Payment Link n'est pas un secret, il peut aller dans le HTML.
+- **Garder la simplicité** : pas de framework, pas de npm, pas de JavaScript sans nécessité réelle, pas de
+  PHP. Si un besoin dépasse ce cadre (panier multi-livres, stock automatique…), en parler à Martin avant.
+- **Pas de ressources externes** (polices Google, scripts tiers, traceurs), pour ne pas avoir besoin de
+  bandeau cookies.
 - **Le prix est fixé par l'éditeur** (loi sur le prix unique du livre). TVA du livre : **5,5 %**, prix
   affichés TTC.
-- **Phase maquette** : chaque page porte `<meta name="robots" content="noindex">`, pour que Google ne
-  l'indexe pas. À retirer de toutes les pages le jour du lancement, et pas avant.
+- **Phase maquette** : chaque page porte `<meta name="robots" content="noindex">`. À retirer de toutes les
+  pages le jour du lancement, et pas avant.
 - Les **CGV** et les **mentions légales** sont des modèles : ne pas les présenter comme définitives tant
-  qu'elles n'ont pas été relues.
+  qu'elles n'ont pas été relues. Hébergeur à indiquer dans les mentions légales : OVH SAS, 2 rue
+  Kellermann, 59100 Roubaix.
 
 ## Ajouter un livre
 
@@ -73,12 +122,12 @@ et le lien Stripe (ou le créer avec lui, voir plus bas).
 
 1. Copier `livres/les-aquarellistes-anonymes.html` vers `livres/<titre-en-minuscules-avec-tirets>.html`
    et remplacer tout le contenu (titre, `<title>`, `description`, texte, fiche, prix, lien Stripe).
-2. Déposer la couverture dans `img/` (JPG ou WebP, environ 1 000 px de haut au maximum) et remplacer la
-   couverture dessinée en CSS par un `<img>`.
+2. Déposer la couverture dans `img/` (JPG ou WebP, environ 1 000 px de haut au maximum, la compresser si
+   besoin) et remplacer la couverture dessinée en CSS par un `<img>` avec un `alt`.
 3. Ajouter un bloc `<a class="fiche">` **en tête** du catalogue dans `index.html`.
-4. Vérifier dans le navigateur, sur mobile et sur ordinateur, puis commit et push.
+4. Vérifier dans le navigateur, sur mobile et sur ordinateur, montrer à Thierry, puis commit et push.
 
-## Créer le lien Stripe d'un livre (Thierry le fait, tu le guides)
+## Créer le lien Stripe d'un livre (Thierry le fait, tu le guides pas à pas)
 
 Dans Stripe, compte Europera : *Liens de paiement → Nouveau*.
 - Produit : le titre du livre, au prix TTC, avec un taux de TVA de **5,5 % inclus**.
@@ -93,9 +142,9 @@ Faire un premier essai en **mode test** de Stripe avant d'utiliser le vrai lien.
 ## Reste à faire avant le lancement
 
 - [ ] Vraie couverture des *Aquarellistes Anonymes*, texte de présentation, ISBN
-- [ ] Texte de présentation de la maison, e-mail de contact
-- [ ] Mentions légales : SIREN, forme juridique, n° de TVA d'Europera
+- [ ] Texte de présentation de la maison
+- [ ] Mentions légales : SIREN, forme juridique, n° de TVA d'Europera, hébergeur OVH
 - [ ] CGV : tarif et zone de livraison, médiateur de la consommation (obligatoire), relecture
 - [ ] Compte Stripe Europera + lien de paiement du premier livre
-- [ ] Nom de domaine chez OVH, déclaré dans GitHub Pages (Martin s'en occupe)
+- [ ] Hébergement OVH en place (voir « État de l'hébergement »)
 - [ ] Retirer les `noindex`
