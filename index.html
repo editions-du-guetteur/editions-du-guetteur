@@ -38,26 +38,37 @@
         <p class="surtitre">Arts</p>
         <h2 id="titre-une"><a href="livres/les-aquarellistes-anonymes.html">Les Aquarellistes Anonymes</a></h2>
         <p class="auteur">Patrice Caumon</p>
+        <blockquote class="citation-une"><p>«&nbsp;L'aquarelle est une brume transpercée.&nbsp;»</p></blockquote>
+        <p class="rarete">100 exemplaires numérotés · <strong>25&nbsp;€</strong></p>
         <p class="liens">
-          <a class="bouton" href="livres/les-aquarellistes-anonymes.html">Découvrir le livre</a>
+          <a href="livres/les-aquarellistes-anonymes.html">Découvrir le livre</a>
+          <!-- STRIPE : quand le lien de paiement existera, ce bouton pourra pointer directement dessus -->
+          <a class="bouton" href="livres/les-aquarellistes-anonymes.html#achat">Acheter le livre</a>
           <a href="catalogue.html">Tout le catalogue</a>
         </p>
       </div>
     </section>
+
+    <!-- Feuilleter : une double page du livre en vente -->
+    <a class="feuilleter" href="livres/les-aquarellistes-anonymes.html#titre-extraits">
+      <img src="img/aquarellistes-pages.jpg" alt="Double page des Aquarellistes Anonymes : courts textes sur l'aquarelle, une nature morte aux figues et un paysage de palmiers" width="1400" height="984" loading="lazy">
+      <span class="feuilleter-legende">Feuilleter le livre : lire des extraits →</span>
+    </a>
 
     <!-- Prochaine publication : à la date de sortie, ce livre devient la « dernière publication »
          ci-dessus et rejoint catalogue.html, dans sa rubrique -->
     <section class="a-venir" aria-labelledby="titre-a-venir" data-sortie="2026-12-15">
       <h2 class="titre-section" id="titre-a-venir">Prochaine publication</h2>
       <div class="a-la-une">
-        <div class="a-la-une-couverture">
-          <img class="couverture-img" src="img/repas-de-dessins-couverture.jpg" alt="Trois dessins de Jean-Marie Leydier : une ronde d'animaux, un paysage à l'encre sépia, un crabe rose et noir" width="900" height="900" loading="lazy">
-        </div>
+        <a class="a-la-une-couverture" href="livres/repas-de-dessins.html" tabindex="-1" aria-hidden="true">
+          <img class="couverture-img" src="img/repas-de-dessins-couverture.jpg" alt="" width="900" height="900" loading="lazy">
+        </a>
         <div>
           <p class="surtitre">Arts</p>
-          <h3>Repas de Dessins</h3>
+          <h3><a href="livres/repas-de-dessins.html">Repas de Dessins</a></h3>
           <p class="auteur">Jean-Marie Leydier</p>
           <p class="sortie">Parution le <time datetime="2026-12-15">15 décembre 2026</time></p>
+          <p class="liens"><a href="livres/repas-de-dessins.html">Découvrir le livre</a></p>
         </div>
       </div>
     </section>

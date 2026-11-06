@@ -118,15 +118,16 @@ le webhook en place, chaque push sur `main` est en ligne en quelques instants.**
 
 ## Ajouter un livre
 
-Demander à Thierry : titre, auteur, prix TTC, tirage, ISBN, couverture (image), texte de présentation, quelques lignes sur l'auteur, des extraits (texte et/ou image d'une double page),
+Demander à Thierry : titre, auteur, prix TTC, tirage, ISBN, couverture (image), texte de présentation, quelques lignes sur l'auteur, des extraits (texte et/ou image d'une double page), la bibliographie de l'auteur (« Du même auteur »),
 et le lien Stripe (ou le créer avec lui, voir plus bas).
 
 1. Copier `livres/les-aquarellistes-anonymes.html` vers `livres/<titre-en-minuscules-avec-tirets>.html`
+   *Livre à paraître* : partir plutôt de `livres/repas-de-dessins.html` (encart `parution` avec la date au lieu du bloc d'achat, fiche avec « Parution » ; ne mettre que les lignes connues).
    et remplacer tout le contenu (titre, `<title>`, `description`, texte, fiche, prix, lien Stripe).
 2. Déposer la couverture dans `img/` (JPG ou WebP, environ 1 000 px de haut au maximum, la compresser si
    besoin) et remplacer la couverture dessinée en CSS par un `<img>` avec un `alt`.
 3. Demander la rubrique (Arts, Nouvelles et récits ou Documents) et ajouter un bloc `<a class="fiche">` **en tête** de cette rubrique dans `catalogue.html` (retirer « Prochainement » si elle était vide).
-3 bis. Si c'est la dernière parution : remplacer le livre du bloc `a-la-une` dans `index.html` (lien, couverture, titre, auteur, rubrique, tirage, prix).
+3 bis. Si c'est la dernière parution : remplacer le livre du bloc `a-la-une` dans `index.html` (lien, couverture, titre, auteur, rubrique, citation `citation-une`, tirage et prix `rarete`, bouton « Acheter ») et l'image du lien `feuilleter` (double page).
 4. Vérifier dans le navigateur, sur mobile et sur ordinateur, montrer à Thierry, puis commit et push.
 
 ## Créer le lien Stripe d'un livre (Thierry le fait, tu le guides pas à pas)
@@ -144,16 +145,17 @@ Faire un premier essai en **mode test** de Stripe avant d'utiliser le vrai lien.
 ## Reste à faire avant le lancement
 
 - [x] Vraie couverture des *Aquarellistes Anonymes* (`img/aquarellistes-couverture.jpg`)
-- [ ] *Aquarellistes Anonymes* : texte de présentation, texte « L'auteur » (Patrice Caumon) — ISBN fait : 979-10-984927-0-9
+- [ ] *Aquarellistes Anonymes* : texte de présentation — fait : texte « L'auteur » et « Bibliographie » (6 nov. 2026), ISBN : 979-10-984927-0-9
 - [x] *Aquarellistes Anonymes* : section « Extraits » (double page `img/aquarellistes-pages.jpg` + trois courts textes)
 - [x] Nouvelle structure : menu Accueil / Les éditions du Guetteur / Catalogue, accueil = dernière publication, `catalogue.html` en trois rubriques (à faire relire par Martin)
 - [x] Accueil : encadré « Prochaine publication » (*Repas de Dessins*, Jean-Marie Leydier, Arts, image `img/repas-de-dessins-couverture.jpg`, sortie le 15 déc. 2026)
-- [ ] *Repas de Dessins* : page du livre à préparer avant la sortie (prix TTC, tirage, ISBN, présentation, lien Stripe)
-- [ ] **Le 15 déc. 2026 (avec Thierry)** : *Repas de Dessins* devient la dernière publication (bloc `a-la-une` de `index.html`), sa fiche « À paraître » de `catalogue.html` (rubrique Arts) devient un lien vers sa page, sans bandeau, et l'encadré `a-venir` est retiré ou remplacé. Décision du 4 nov. 2026 : bascule faite à la main, sans JavaScript
-- [ ] *La Saga Guilbaud* (Jean-Jacques Guilbaud, Nouvelles et récits, à paraître le 1er févr. 2027) : fiche « À paraître » en place dans `catalogue.html` avec couverture dessinée provisoire ; récit ; reste couverture, prix, format, pages, page du livre. À la parution, même bascule à la main que *Repas de Dessins*
+- [ ] *Repas de Dessins* : page `livres/repas-de-dessins.html` créée (modèle « à paraître », 6 nov. 2026) ; reste prix TTC, tirage, format, ISBN, présentation, lien Stripe
+- [ ] **Le 15 déc. 2026 (avec Thierry)** : *Repas de Dessins* devient la dernière publication (bloc `a-la-une` de `index.html`), sa fiche de `catalogue.html` perd la classe `fiche-a-paraitre` et le bandeau, sa page remplace l'encart `parution` par le bloc `achat` (prix, Stripe), et l'encadré `a-venir` est retiré ou remplacé. Décision du 4 nov. 2026 : bascule faite à la main, sans JavaScript
+- [ ] *La Saga Guilbaud* (Jean-Jacques Guilbaud, Nouvelles et récits, à paraître le 1er févr. 2027) : fiche « À paraître » en place dans `catalogue.html` avec couverture dessinée provisoire ; récit ; page `livres/la-saga-guilbaud.html` créée (modèle « à paraître ») ; reste couverture, prix, format, pages, tirage, ISBN. À la parution, même bascule à la main que *Repas de Dessins*
 - [x] Texte de présentation de la maison (`a-propos.html`, texte de Thierry du 4 nov. 2026)
-- [ ] Mentions légales : SIREN, forme juridique, n° de TVA d'Europera, hébergeur OVH
-- [ ] CGV : livraison (fait : 8 € par Colissimo, France métropolitaine uniquement ; reste le délai et « par commande ou par livre » ; le lien Stripe devra limiter la livraison à la France), médiateur de la consommation (obligatoire), relecture
+- [x] Accueil enrichi (6 nov. 2026) : citation du livre, « 100 exemplaires numérotés · 25 € », boutons Découvrir puis Acheter, double page « Feuilleter », nom du domaine agrandi ; boutons des domaines agrandis sur `a-propos.html`
+- [x] Mentions légales : Europera SARL au capital de 7 622 €, RCS Paris, SIRET 401 458 641 00016, TVA FR73 401 458 641, hébergeur OVH (6 nov. 2026) ; reste à faire relire, et l'e-mail de contact
+- [ ] CGV : livraison (fait : 8 € par Colissimo, France métropolitaine uniquement ; reste le délai et « par commande ou par livre » ; le lien Stripe devra limiter la livraison à la France), médiateur de la consommation (obligatoire ; choix du 6 nov. 2026 : **CM2C**, Thierry doit adhérer pour Europera sur cm2c.net, puis reporter ses coordonnées officielles dans `cgv.html`), relecture
 - [ ] Compte Stripe Europera + lien de paiement du premier livre
 - [ ] Hébergement OVH en place (voir « État de l'hébergement »)
 - [ ] Retirer les **livres tests** fictifs de `catalogue.html` (bandeau « Exemple », commentaires `LIVRES TESTS` ; garder *La Saga Guilbaud*) et les styles `.fiche-test`, `.bandeau-test`, `.teinte-*` de `style.css`
