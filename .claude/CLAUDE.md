@@ -145,14 +145,15 @@ Faire un premier essai en **mode test** de Stripe avant d'utiliser le vrai lien.
 ## Reste à faire avant le lancement
 
 - [x] Vraie couverture des *Aquarellistes Anonymes* (`img/aquarellistes-couverture.jpg`)
-- [ ] *Aquarellistes Anonymes* : texte de présentation — fait : texte « L'auteur » et « Bibliographie » (6 nov. 2026), ISBN : 979-10-984927-0-9
+- [x] *Aquarellistes Anonymes* : texte de présentation (brouillon n° 1 choisi le 9 nov. 2026), texte « L'auteur » et « Bibliographie » (6 nov. 2026), ISBN : 979-10-984927-0-9
 - [x] *Aquarellistes Anonymes* : section « Extraits » (double page `img/aquarellistes-pages.jpg` + trois courts textes)
-- [x] Nouvelle structure : menu Accueil / Les éditions du Guetteur / Catalogue, accueil = dernière publication, `catalogue.html` en trois rubriques (à faire relire par Martin)
+- [x] Nouvelle structure : menu Accueil / Les Éditions du Guetteur / Catalogue, accueil = dernière publication, `catalogue.html` en trois rubriques (à faire relire par Martin)
 - [x] Accueil : encadré « Prochaine publication » (*Repas de Dessins*, Jean-Marie Leydier, Arts, image `img/repas-de-dessins-couverture.jpg`, sortie le 15 déc. 2026)
 - [ ] *Repas de Dessins* : page `livres/repas-de-dessins.html` créée (modèle « à paraître », 6 nov. 2026) ; reste prix TTC, tirage, format, ISBN, présentation, lien Stripe
 - [ ] **Le 15 déc. 2026 (avec Thierry)** : *Repas de Dessins* devient la dernière publication (bloc `a-la-une` de `index.html`), sa fiche de `catalogue.html` perd la classe `fiche-a-paraitre` et le bandeau, sa page remplace l'encart `parution` par le bloc `achat` (prix, Stripe), et l'encadré `a-venir` est retiré ou remplacé. Décision du 4 nov. 2026 : bascule faite à la main, sans JavaScript
 - [ ] *La Saga Guilbaud* (Jean-Jacques Guilbaud, Nouvelles et récits, à paraître le 1er févr. 2027) : fiche « À paraître » en place dans `catalogue.html` avec couverture dessinée provisoire ; récit ; page `livres/la-saga-guilbaud.html` créée (modèle « à paraître ») ; reste couverture, prix, format, pages, tirage, ISBN. À la parution, même bascule à la main que *Repas de Dessins*
 - [x] Texte de présentation de la maison (`a-propos.html`, texte de Thierry du 4 nov. 2026)
+- [x] `a-propos.html` : page réorganisée en deux volets « Aux lecteurs » / « Aux auteurs », avec l'encadré « Envoyer un manuscrit » dans le volet auteurs (9 nov. 2026) : envoi par courriel (adresse de contact à venir), réponse sous deux mois environ
 - [x] Accueil enrichi (6 nov. 2026) : citation du livre, « 100 exemplaires numérotés · 25 € », boutons Découvrir puis Acheter, double page « Feuilleter », nom du domaine agrandi ; boutons des domaines agrandis sur `a-propos.html`
 - [x] Mentions légales : Europera SARL au capital de 7 622 €, RCS Paris, SIRET 401 458 641 00016, TVA FR73 401 458 641, hébergeur OVH (6 nov. 2026) ; reste à faire relire, et l'e-mail de contact
 - [ ] CGV : livraison (fait : 8 € par Colissimo, France métropolitaine uniquement ; reste le délai et « par commande ou par livre » ; le lien Stripe devra limiter la livraison à la France), médiateur de la consommation (obligatoire ; choix du 6 nov. 2026 : **CM2C**, Thierry doit adhérer pour Europera sur cm2c.net, puis reporter ses coordonnées officielles dans `cgv.html`), relecture
@@ -163,7 +164,7 @@ Faire un premier essai en **mode test** de Stripe avant d'utiliser le vrai lien.
 
 ### Pour Martin (4 nov. 2026)
 
-- Thierry a réorganisé le site : menu Accueil / Les éditions du Guetteur / Catalogue ; l'accueil ne montre
+- Thierry a réorganisé le site : menu Accueil / Les Éditions du Guetteur / Catalogue ; l'accueil ne montre
   plus que la dernière publication (bloc `a-la-une`) ; nouvelle page `catalogue.html` en trois rubriques ;
   la page du livre a des sections « L'auteur » et « Extraits ». Animations d'apparition de l'accueil en CSS
   seul (pas de JavaScript), désactivées si `prefers-reduced-motion`. À relire quand tu as un moment.

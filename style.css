@@ -448,6 +448,33 @@ a:hover { color: var(--accent-fonce); }
 }
 .domaines a:hover { background: var(--filet); }
 
+/* Page « Les Éditions du Guetteur » : deux volets, lecteurs et auteurs */
+.volet {
+  border-left: 3px solid var(--accent);
+  padding: .2rem 0 .2rem 1.4rem;
+  margin: 0 0 2.4rem;
+}
+.volet h2 { margin-top: 0; font-size: 1.5rem; }
+.volet > p { margin: 0 0 .8rem; }
+.volet .domaines { margin-bottom: 0; }
+.manuscrit {
+  background: var(--papier-2);
+  border: 1px solid var(--filet);
+  padding: 1.2rem 1.4rem;
+  margin-top: 1.2rem;
+}
+.manuscrit h3 {
+  font-family: var(--sans);
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ocre);
+  margin: 0 0 .6rem;
+}
+.manuscrit p { margin: 0 0 .7rem; font-size: 1.1rem; }
+.manuscrit p:last-child { margin-bottom: 0; }
+
 /* Pied de page */
 
 .pied {
