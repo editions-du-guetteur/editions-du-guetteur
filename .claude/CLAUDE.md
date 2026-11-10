@@ -49,7 +49,7 @@ d'hébergement OVH la moins chère.
 | Fichier | Rôle |
 |---|---|
 | `index.html` | Accueil : titre « Notre dernière publication » + **dernière parution** (bloc `a-la-une`, un seul livre) |
-| `catalogue.html` | Catalogue en trois rubriques : **Arts**, **Nouvelles et récits**, **Documents** (une fiche `<a class="fiche">` par livre, le plus récent en premier ; « Prochainement » si la rubrique est vide) |
+| `catalogue.html` | Catalogue en quatre rubriques : **Arts**, **Nouvelles et récits**, **Traits d'esprit** (humour, ajoutée le 10 nov. 2026), **Documents** (une fiche `<a class="fiche">` par livre, le plus récent en premier ; « Prochainement » si la rubrique est vide) |
 | `livres/<titre>.html` | Une page par livre, avec le bouton « Acheter » |
 | `a-propos.html` | La maison + contact |
 | `cgv.html`, `mentions-legales.html` | Obligatoires pour vendre en ligne |
@@ -126,7 +126,7 @@ et le lien Stripe (ou le créer avec lui, voir plus bas).
    et remplacer tout le contenu (titre, `<title>`, `description`, texte, fiche, prix, lien Stripe).
 2. Déposer la couverture dans `img/` (JPG ou WebP, environ 1 000 px de haut au maximum, la compresser si
    besoin) et remplacer la couverture dessinée en CSS par un `<img>` avec un `alt`.
-3. Demander la rubrique (Arts, Nouvelles et récits ou Documents) et ajouter un bloc `<a class="fiche">` **en tête** de cette rubrique dans `catalogue.html` (retirer « Prochainement » si elle était vide).
+3. Demander la rubrique (Arts, Nouvelles et récits, Traits d'esprit ou Documents) et ajouter un bloc `<a class="fiche">` **en tête** de cette rubrique dans `catalogue.html` (retirer « Prochainement » si elle était vide).
 3 bis. Si c'est la dernière parution : remplacer le livre du bloc `a-la-une` dans `index.html` (lien, couverture, titre, auteur, rubrique, citation `citation-une`, tirage et prix `rarete`, bouton « Acheter ») et l'image du lien `feuilleter` (double page).
 4. Vérifier dans le navigateur, sur mobile et sur ordinateur, montrer à Thierry, puis commit et push.
 

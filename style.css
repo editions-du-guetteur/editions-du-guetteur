@@ -53,12 +53,17 @@ a:hover { color: var(--accent-fonce); }
   padding-bottom: 1.2rem;
 }
 .marque {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
   font-size: 1.5rem;
   font-weight: 500;
   letter-spacing: .02em;
   color: var(--encre);
   text-decoration: none;
 }
+.marque img { height: 64px; width: auto; }
+.entete .conteneur { align-items: center; }
 .marque small {
   display: block;
   font-family: var(--sans);
