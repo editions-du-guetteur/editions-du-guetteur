@@ -555,32 +555,45 @@ main > .a-la-une .couverture-img,
 .feuilleter { margin-top: 3rem; color: var(--encre); max-width: 720px; margin-left: auto; margin-right: auto; text-align: center; }
 .feuilleter img { box-shadow: 0 30px 50px -25px rgba(0,0,0,.55); }
 
-/* Accueil : prochaine publication dans un encart blanc */
-.a-venir { border-top: 0; }
+/* Accueil : prochaine publication dans un bandeau bleu nuit pleine largeur
+   (bandeau « A » choisi par Thierry le 23 nov. 2026), date en grand italique doré */
+.a-venir {
+  background: var(--nuit);
+  box-shadow: 0 0 0 100vmax var(--nuit);
+  clip-path: inset(0 -100vmax);
+  color: var(--ivoire);
+  border-top: 0;
+  padding: 3.5rem 0 4rem;
+  margin-top: 2rem;
+}
 .a-venir .titre-section {
   font-family: var(--sans);
   font-size: .85rem;
   letter-spacing: .28em;
   text-transform: uppercase;
-  color: var(--ocre);
+  color: var(--or);
 }
-.a-venir .a-la-une {
-  background: #fff;
-  border: 1px solid var(--filet);
-  padding: 2rem;
-  margin-bottom: 4rem;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 5fr);
-}
+.a-venir .a-la-une { padding: 0; grid-template-columns: minmax(0, 3fr) minmax(0, 5fr); }
 .a-venir .a-la-une-couverture { max-width: 260px; }
+.a-venir .a-la-une-couverture img { box-shadow: 0 30px 60px -20px rgba(0,0,0,.7); }
+.a-venir .surtitre { color: var(--or); }
+.a-venir h3 a { color: var(--ivoire); }
+.a-venir h3 a:hover { color: var(--or); }
+.a-venir .auteur { color: var(--ivoire-doux); }
 .a-venir .sortie {
+  display: block;
   background: transparent;
   border: 0;
-  border-top: 1px solid var(--filet);
-  border-bottom: 1px solid var(--filet);
-  padding: .5rem 0;
-  color: var(--ocre);
-  letter-spacing: .06em;
+  padding: 0;
+  margin-top: .6rem;
+  color: var(--or);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  line-height: 1.2;
 }
+.a-venir .liens a { color: var(--or-clair); }
+.a-venir .liens a:hover { color: var(--ivoire); }
 
 /* Page d'un livre : couverture et achat dans le bandeau */
 .livre h1 { color: var(--ivoire); }
@@ -603,6 +616,7 @@ main > .a-la-une .couverture-img,
 
 @media (max-width: 720px) {
   .feuilleter { margin-top: 2rem; }
-  .a-venir .a-la-une { grid-template-columns: 1fr; padding: 1.4rem; }
+  .a-venir .a-la-une { grid-template-columns: 1fr; }
+  .a-venir { padding: 2.5rem 0 3rem; }
   main > .intro-courte { padding-top: 2.5rem; }
 }
