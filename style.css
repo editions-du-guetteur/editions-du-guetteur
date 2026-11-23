@@ -562,9 +562,9 @@ main > .a-la-une .couverture-img,
   box-shadow: 0 0 0 100vmax var(--nuit);
   clip-path: inset(0 -100vmax);
   color: var(--ivoire);
-  border-top: 0;
+  border-top: 1px solid rgba(201, 164, 92, .35);   /* fin filet doré entre les deux bandeaux */
   padding: 3.5rem 0 4rem;
-  margin-top: 2rem;
+  margin-top: 0;
 }
 .a-venir .titre-section {
   font-family: var(--sans);
@@ -681,3 +681,14 @@ main > .a-la-une .couverture-img,
 
 /* Page du livre : le livre à feuilleter sous le titre « Extraits » */
 .feuilletage-extraits { margin: 1.5rem auto 3rem; }
+
+/* Accueil : invitation à feuilleter, sous la couverture du bandeau */
+.couverture-invite {
+  display: block;
+  margin-top: 1rem;
+  font-family: var(--sans);
+  font-size: .85rem;
+  text-align: center;
+  color: var(--or-clair);
+}
+.a-la-une-couverture:hover .couverture-invite { color: var(--ivoire); text-decoration: underline; text-underline-offset: 3px; }
