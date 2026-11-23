@@ -1,14 +1,20 @@
 /* Les Éditions du Guetteur — feuille de style unique */
 
 :root {
-  --papier: #eaf3fa;        /* bleu clair */
-  --papier-2: #d9e9f5;
+  /* Style « Vitrine » choisi par Thierry le 23 nov. 2026 : ivoire, bleu nuit et or */
+  --papier: #f6f3ec;        /* ivoire */
+  --papier-2: #ece6d8;
   --encre: #16263a;
-  --encre-douce: #4a5d72;
-  --filet: #c3d7e8;
-  --accent: #2f5d7c;        /* bleu aquarelle */
+  --encre-douce: #5b6672;
+  --filet: #d9d0bd;
+  --accent: #2f5d7c;        /* bleu aquarelle (liens) */
   --accent-fonce: #234863;
   --ocre: #9a6a28;
+  --nuit: #16263a;          /* bandeaux sombres */
+  --or: #c9a45c;            /* touches dorées, boutons */
+  --or-clair: #e6d6b0;      /* liens sur fond sombre */
+  --ivoire: #f4eee2;        /* texte sur fond sombre */
+  --ivoire-doux: #c8c2b6;
   --largeur: 1040px;
   --serif: "EB Garamond", Garamond, Georgia, serif;
   --sans: "Inter", system-ui, -apple-system, sans-serif;
@@ -228,31 +234,13 @@ a:hover { color: var(--accent-fonce); }
   font-weight: 500;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: #fff;
-  background: var(--accent);
+  color: var(--or);
+  background: var(--nuit);
   padding: .35rem .6rem;
 }
-.bandeau-bas { top: auto; left: auto; bottom: 2.6rem; right: .7rem; }
+.bandeau-bas { top: auto; left: auto; bottom: 22%; right: .7rem; }
 
-/* Livres tests (fictifs, à retirer avant le lancement) */
-.fiche-test { cursor: default; }
-.bandeau-test { background: var(--ocre); top: auto; left: auto; bottom: 2.6rem; right: .7rem; }
 .vignette .bandeau { z-index: 1; }
-.couverture.teinte-ocre::before {
-  background:
-    radial-gradient(ellipse 50% 35% at 35% 60%, rgba(192,138,62,.45), transparent 70%),
-    radial-gradient(ellipse 35% 25% at 70% 70%, rgba(154,106,40,.30), transparent 70%);
-}
-.couverture.teinte-vert::before {
-  background:
-    radial-gradient(ellipse 50% 35% at 40% 60%, rgba(122,150,98,.45), transparent 70%),
-    radial-gradient(ellipse 35% 25% at 70% 50%, rgba(47,93,124,.25), transparent 70%);
-}
-.couverture.teinte-gris::before {
-  background:
-    radial-gradient(ellipse 55% 35% at 45% 62%, rgba(74,93,114,.40), transparent 70%),
-    radial-gradient(ellipse 30% 22% at 70% 72%, rgba(22,38,58,.25), transparent 70%);
-}
 .fiche .details-fiche { font-family: var(--sans); font-size: .8rem; line-height: 1.5; margin-top: .4rem; }
 
 /* Catalogue : rubriques */
@@ -325,12 +313,21 @@ a:hover { color: var(--accent-fonce); }
   line-height: 1.05;
   font-weight: 500;
 }
+/* Mention de l'éditeur : même dessin que la couverture des Aquarellistes
+   (« Éditions » puis « DU GUETTEUR », centrés en bas, en Garamond) */
 .couverture .c-editeur {
-  font-family: var(--sans);
-  font-size: clamp(.5rem, 1.4vw, .7rem);
-  letter-spacing: .14em;
+  align-self: center;
+  text-align: center;
+  font-family: var(--serif);
+  font-size: clamp(.62rem, 1.6vw, .85rem);
+  line-height: 1.25;
+  color: var(--encre);
+}
+.couverture .c-maison {
+  display: block;
   text-transform: uppercase;
-  color: var(--encre-douce);
+  letter-spacing: .06em;
+  font-size: .92em;
 }
 
 /* Page livre */
@@ -364,8 +361,8 @@ a:hover { color: var(--accent-fonce); }
 .prix small { display: block; font-family: var(--sans); font-size: .75rem; color: var(--encre-douce); }
 .bouton {
   display: inline-block;
-  background: var(--accent);
-  color: #fff;
+  background: var(--or);
+  color: var(--nuit);
   font-family: var(--sans);
   font-size: 1rem;
   font-weight: 500;
@@ -373,7 +370,7 @@ a:hover { color: var(--accent-fonce); }
   border-radius: 2px;
   text-decoration: none;
 }
-.bouton:hover { background: var(--accent-fonce); color: #fff; }
+.bouton:hover { background: #d8b673; color: var(--nuit); }
 .achat .note { font-family: var(--sans); font-size: .8rem; color: var(--encre-douce); flex-basis: 100%; margin: 0; }
 
 .parution {
@@ -455,7 +452,7 @@ a:hover { color: var(--accent-fonce); }
 
 /* Page « Les Éditions du Guetteur » : deux volets, lecteurs et auteurs */
 .volet {
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid var(--or);
   padding: .2rem 0 .2rem 1.4rem;
   margin: 0 0 2.4rem;
 }
@@ -500,4 +497,112 @@ a:hover { color: var(--accent-fonce); }
   .intro { padding: 3rem 0 2rem; }
   .a-la-une { grid-template-columns: 1fr; gap: 2rem; padding-bottom: 3.5rem; }
   .a-la-une-couverture { max-width: 260px; }
+}
+
+/* ==========================================================================
+   Style « Vitrine » (23 nov. 2026) : un bandeau bleu nuit d'un bord à l'autre
+   de l'écran pour le haut de chaque page (livre à la une, page de livre,
+   titre des autres pages). Le bandeau est obtenu en CSS seul (ombre élargie
+   + découpe), sans changer le HTML.
+   ========================================================================== */
+
+main > .intro-courte,
+main > .a-la-une,
+.livre,
+.texte > .surtitre:first-child,
+.texte > h1 {
+  background: var(--nuit);
+  box-shadow: 0 0 0 100vmax var(--nuit);
+  clip-path: inset(0 -100vmax);
+  color: var(--ivoire);
+}
+
+/* Titres et petites lignes sur fond sombre */
+main > .intro-courte { max-width: none; padding: 3.5rem 0 2.5rem; }
+main > .intro-courte:has(+ .a-la-une) { padding-bottom: .5rem; }
+main > .intro-courte:not(:has(+ .a-la-une)) { margin-bottom: 1.5rem; }
+main > .intro-courte h1 { color: var(--ivoire); }
+main > .intro-courte h1:only-child {
+  font-family: var(--sans);
+  font-size: .85rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--or);
+  margin: 0;
+}
+main > .intro-courte .surtitre,
+main > .a-la-une .surtitre,
+.livre .surtitre,
+.texte > .surtitre:first-child { color: var(--or); }
+
+/* Accueil : le livre en vitrine */
+main > .a-la-une h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+main > .a-la-une h2 a { color: var(--ivoire); }
+main > .a-la-une h2 a:hover { color: var(--or); }
+main > .a-la-une .auteur,
+main > .a-la-une .rarete { color: var(--ivoire-doux); }
+main > .a-la-une .rarete strong { color: var(--ivoire); }
+main > .a-la-une .citation-une { color: var(--ivoire); border-left-color: var(--or); }
+main > .a-la-une .liens a:not(.bouton),
+.livre a:not(.bouton) { color: var(--or-clair); }
+main > .a-la-une .liens a:not(.bouton):hover,
+.livre a:not(.bouton):hover { color: var(--ivoire); }
+main > .a-la-une .couverture-img,
+.livre .couverture-img,
+.livre .couverture { box-shadow: 0 30px 60px -20px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06); }
+
+/* Accueil : la double page, sous le bandeau (sans le chevaucher, demande de Thierry du 23 nov. 2026) */
+.feuilleter { margin-top: 3rem; color: var(--encre); max-width: 720px; margin-left: auto; margin-right: auto; text-align: center; }
+.feuilleter img { box-shadow: 0 30px 50px -25px rgba(0,0,0,.55); }
+
+/* Accueil : prochaine publication dans un encart blanc */
+.a-venir { border-top: 0; }
+.a-venir .titre-section {
+  font-family: var(--sans);
+  font-size: .85rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--ocre);
+}
+.a-venir .a-la-une {
+  background: #fff;
+  border: 1px solid var(--filet);
+  padding: 2rem;
+  margin-bottom: 4rem;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 5fr);
+}
+.a-venir .a-la-une-couverture { max-width: 260px; }
+.a-venir .sortie {
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--filet);
+  border-bottom: 1px solid var(--filet);
+  padding: .5rem 0;
+  color: var(--ocre);
+  letter-spacing: .06em;
+}
+
+/* Page d'un livre : couverture et achat dans le bandeau */
+.livre h1 { color: var(--ivoire); }
+.livre .auteur,
+.livre .note,
+.livre .prix small,
+.livre .photo-lecture figcaption { color: var(--ivoire-doux); }
+.livre .prix { color: var(--ivoire); }
+.livre .achat,
+.livre .parution { border-color: rgba(244, 238, 226, .18); }
+.livre .parution-date { background: transparent; border-color: var(--or); color: var(--or); }
+.livre .caracteristiques dt { color: #a7adb5; }
+.livre + .livre-suite { border-top: 0; }
+
+/* Autres pages : le titre dans le bandeau */
+.texte { padding-top: 0; }
+.texte > .surtitre:first-child { margin: 0; padding-top: 3rem; }
+.texte > h1 { margin: 0 0 2.5rem; padding: 3rem 0 2.5rem; color: var(--ivoire); }
+.texte > .surtitre:first-child + h1 { padding-top: .4rem; }
+
+@media (max-width: 720px) {
+  .feuilleter { margin-top: 2rem; }
+  .a-venir .a-la-une { grid-template-columns: 1fr; padding: 1.4rem; }
+  main > .intro-courte { padding-top: 2.5rem; }
 }

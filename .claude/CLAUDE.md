@@ -60,6 +60,12 @@ Le paiement passe par un **Payment Link Stripe** par livre : le bouton « Achete
 `https://buy.stripe.com/…`. Stripe gère la carte, l'adresse de livraison, les frais de port, la facture
 et l'e-mail de confirmation. Le site ne voit jamais un paiement et ne stocke rien.
 
+**Apparence (style « Vitrine », choisi par Thierry le 23 nov. 2026)** : fond ivoire, bandeau bleu nuit d'un bord
+à l'autre de l'écran pour le haut de chaque page (livre à la une, page de livre, titre des autres pages), touches
+dorées et boutons dorés. Tout est dans `style.css` (variables `--nuit`, `--or`, `--ivoire` ; section « Style Vitrine »
+en fin de fichier), sans changement du HTML. Le dossier `brouillons/` (propositions d'accueil) n'est jamais enregistré
+sur GitHub (exclu dans `.git/info/exclude`).
+
 Les commentaires HTML `À FOURNIR`, `À COMPLÉTER` et `STRIPE` repèrent ce qui reste à remplir.
 
 ## Hébergement OVH et mise en ligne
@@ -122,10 +128,11 @@ Demander à Thierry : titre, auteur, prix TTC, tirage, ISBN, couverture (image),
 et le lien Stripe (ou le créer avec lui, voir plus bas).
 
 1. Copier `livres/les-aquarellistes-anonymes.html` vers `livres/<titre-en-minuscules-avec-tirets>.html`
-   *Livre à paraître* : partir plutôt de `livres/repas-de-dessins.html` (encart `parution` avec la date au lieu du bloc d'achat, fiche avec « Parution » ; ne mettre que les lignes connues).
+   *Livre à paraître* : partir plutôt de `livres/festin-de-dessins.html` (encart `parution` avec la date au lieu du bloc d'achat, fiche avec « Parution » ; ne mettre que les lignes connues).
    et remplacer tout le contenu (titre, `<title>`, `description`, texte, fiche, prix, lien Stripe).
 2. Déposer la couverture dans `img/` (JPG ou WebP, environ 1 000 px de haut au maximum, la compresser si
    besoin) et remplacer la couverture dessinée en CSS par un `<img>` avec un `alt`.
+   Sur chaque couverture, la mention de l’éditeur suit le modèle des *Aquarellistes* : « Éditions » puis « DU GUETTEUR » en dessous, centrés en bas, en Garamond (choix du 23 nov. 2026 ; classes `c-editeur` et `c-maison` pour les couvertures dessinées).
 3. Demander la rubrique (Arts, Nouvelles et récits, Traits d'esprit ou Documents) et ajouter un bloc `<a class="fiche">` **en tête** de cette rubrique dans `catalogue.html` (retirer « Prochainement » si elle était vide).
 3 bis. Si c'est la dernière parution : remplacer le livre du bloc `a-la-une` dans `index.html` (lien, couverture, titre, auteur, rubrique, citation `citation-une`, tirage et prix `rarete`, bouton « Acheter ») et l'image du lien `feuilleter` (double page).
 4. Vérifier dans le navigateur, sur mobile et sur ordinateur, montrer à Thierry, puis commit et push.
@@ -148,11 +155,11 @@ Faire un premier essai en **mode test** de Stripe avant d'utiliser le vrai lien.
 - [x] *Aquarellistes Anonymes* : texte de présentation (brouillon n° 1 choisi le 9 nov. 2026), texte « L'auteur » et « Bibliographie » (6 nov. 2026), ISBN : 979-10-984927-0-9
 - [x] *Aquarellistes Anonymes* : section « Extraits » (double page `img/aquarellistes-pages.jpg` + trois courts textes)
 - [x] Nouvelle structure : menu Accueil / Les Éditions du Guetteur / Catalogue, accueil = dernière publication, `catalogue.html` en trois rubriques (à faire relire par Martin)
-- [x] Accueil : encadré « Prochaine publication » (*Repas de Dessins*, Jean-Marie Leydier, Arts, image `img/repas-de-dessins-couverture.jpg`, sortie le 15 déc. 2026)
-- [ ] *Repas de Dessins* : page `livres/repas-de-dessins.html` créée (modèle « à paraître », 6 nov. 2026) ; reste prix TTC, tirage, format, ISBN, présentation, lien Stripe
-- [ ] **Le 15 déc. 2026 (avec Thierry)** : *Repas de Dessins* devient la dernière publication (bloc `a-la-une` de `index.html`), sa fiche de `catalogue.html` perd la classe `fiche-a-paraitre` et le bandeau, sa page remplace l'encart `parution` par le bloc `achat` (prix, Stripe), et l'encadré `a-venir` est retiré ou remplacé. Décision du 4 nov. 2026 : bascule faite à la main, sans JavaScript
-- [ ] *La Saga Guilbaud* (Jean-Jacques Guilbaud, Nouvelles et récits, à paraître le 1er févr. 2027) : fiche « À paraître » en place dans `catalogue.html` avec couverture dessinée provisoire ; récit ; page `livres/la-saga-guilbaud.html` créée (modèle « à paraître ») ; reste couverture, prix, format, pages, tirage, ISBN. À la parution, même bascule à la main que *Repas de Dessins*
-- [ ] *Œuvres* (Adolphe Lambert, Arts, à paraître, date non fixée) : page `livres/oeuvres-adolphe-lambert.html` (modèle « à paraître ») et fiche « À paraître » en tête de la rubrique Arts, créées le 10 nov. 2026 ; couverture (modèle A choisi le 11 nov. : bas-relief en bronze signé « A. Lambert 1897 » en pleine page, `img/oeuvres-lambert-couverture.jpg`) ; reste date, prix, format, tirage, ISBN, présentation, texte « L'auteur » (Thierry enrichira son dossier LAMBERT), lien Stripe. À la parution, même bascule à la main que *Repas de Dessins*
+- [x] Accueil : encadré « Prochaine publication » (*Festin de dessins*, Jean-Marie Leydier, Arts, image `img/festin-de-dessins-couverture.jpg`, sortie le 15 déc. 2026)
+- [ ] *Festin de dessins* (ancien titre *Repas de Dessins*, changé le 23 nov. 2026) : page `livres/festin-de-dessins.html` créée (modèle « à paraître », 6 nov. 2026) ; reste prix TTC, tirage, format, ISBN, présentation, lien Stripe, vraie couverture (l’image actuelle n’est qu’un assemblage de trois dessins ; y mettre la mention « Éditions / DU GUETTEUR » comme sur les autres couvertures, décision du 23 nov. 2026)
+- [ ] **Le 15 déc. 2026 (avec Thierry)** : *Festin de dessins* devient la dernière publication (bloc `a-la-une` de `index.html`), sa fiche de `catalogue.html` perd la classe `fiche-a-paraitre` et le bandeau, sa page remplace l'encart `parution` par le bloc `achat` (prix, Stripe), et l'encadré `a-venir` est retiré ou remplacé. Décision du 4 nov. 2026 : bascule faite à la main, sans JavaScript
+- [ ] *La Saga Guilbaud* (Jean-Jacques Guilbaud, Nouvelles et récits, à paraître le 1er févr. 2027) : fiche « À paraître » en place dans `catalogue.html` avec couverture dessinée provisoire ; récit ; page `livres/la-saga-guilbaud.html` créée (modèle « à paraître ») ; reste couverture, prix, format, pages, tirage, ISBN. À la parution, même bascule à la main que *Festin de dessins*
+- [ ] *Œuvres* (Adolphe Lambert, Arts, à paraître, date non fixée) : page `livres/oeuvres-adolphe-lambert.html` (modèle « à paraître ») et fiche « À paraître » en tête de la rubrique Arts, créées le 10 nov. 2026 ; couverture (modèle A choisi le 11 nov. : bas-relief en bronze signé « A. Lambert 1897 » en pleine page, `img/oeuvres-lambert-couverture.jpg`) ; reste date, prix, format, tirage, ISBN, présentation, texte « L'auteur » (Thierry enrichira son dossier LAMBERT), lien Stripe. À la parution, même bascule à la main que *Festin de dessins*
 - [ ] *Bloc-notes de la crypte* (Olivier Halpern, Documents, journal de la campagne présidentielle de 2027, à paraître, date non fixée ; texte : Bureau, « BLOCnote de la crypte.docx ») : page `livres/bloc-notes-de-la-crypte.html` (modèle « à paraître ») et fiche « À paraître » en tête de la rubrique Documents, avec couverture dessinée provisoire, créées le 19 nov. 2026. Livre préparé hors du site le 19 nov. (Bureau, « Bloc-notes - modèles de mise en page ») : copie corrigée en suivi Word, maquette A5 de 54 pages avec portraits libres de droits, phrases « vilain secret » en rouge et page « En guise de synthèse ». Reste couverture, date, prix, format, tirage, ISBN, présentation, texte « L'auteur », lien Stripe
 - [x] Texte de présentation de la maison (`a-propos.html`, texte de Thierry du 4 nov. 2026)
 - [x] `a-propos.html` : page en deux volets « Aux lecteurs » / « Aux auteurs » (9 nov. 2026) ; l'encadré « Envoyer un manuscrit » a été retiré à la demande de Thierry le 17 nov. 2026 ; volets développés le 17 nov. 2026 (proposition n° 2, « Aux auteurs » désormais en premier) ; « Aux auteurs » reprend ensuite le texte de la proposition n° 1 ; « Aux lecteurs » présente le projet éditorial de chaque domaine (phrase de « Nouvelles et récits » proposée par Claude et validée ; paragraphe final sur l'originalité, la rareté et la qualité (brouillon n° 2 choisi le 17 nov. 2026))
@@ -161,8 +168,15 @@ Faire un premier essai en **mode test** de Stripe avant d'utiliser le vrai lien.
 - [ ] CGV : livraison (fait : 8 € par Colissimo, France métropolitaine uniquement ; reste le délai et « par commande ou par livre » ; le lien Stripe devra limiter la livraison à la France), médiateur de la consommation (obligatoire ; choix du 6 nov. 2026 : **CM2C**, Thierry doit adhérer pour Europera sur cm2c.net, puis reporter ses coordonnées officielles dans `cgv.html`), relecture
 - [ ] Compte Stripe Europera + lien de paiement du premier livre
 - [ ] Hébergement OVH en place (voir « État de l'hébergement »)
-- [ ] Retirer les **livres tests** fictifs de `catalogue.html` (bandeau « Exemple », commentaires `LIVRES TESTS` ; garder *La Saga Guilbaud*) et les styles `.fiche-test`, `.bandeau-test`, `.teinte-*` de `style.css`
+- [x] Retirer les **livres tests** fictifs de `catalogue.html` et leurs styles de `style.css` (fait le 23 nov. 2026)
 - [ ] Retirer les `noindex`
+
+### Pour Martin (23 nov. 2026)
+
+- Nouveau style « Vitrine » sur tout le site (ivoire, bleu nuit, or), en CSS seul : le bandeau pleine largeur est fait
+  avec `box-shadow: 0 0 0 100vmax` + `clip-path: inset(0 -100vmax)`, et utilise `:has()` pour l'accueil. À relire.
+- *Repas de Dessins* renommé *Festin de dessins* (page et image renommées) ; livres tests retirés du catalogue ;
+  mention de l'éditeur harmonisée sur les couvertures (modèle des *Aquarellistes*).
 
 ### Pour Martin (4 nov. 2026)
 
@@ -177,6 +191,6 @@ Faire un premier essai en **mode test** de Stripe avant d'utiliser le vrai lien.
   (titre, auteur, rubrique, prix, tirage, pages, date de sortie, couverture) et qu'il apparaisse à la fois
   dans `catalogue.html` et sur l'accueil (« Prochaine publication » puis « Dernière publication »), la
   mention « À paraître » disparaissant d'elle-même à la date de sortie. Aujourd'hui c'est fait à la main
-  dans les deux pages (rappel du 15 déc. 2026 pour *Repas de Dessins*). Cela demanderait un petit
+  dans les deux pages (rappel du 15 déc. 2026 pour *Festin de dessins*). Cela demanderait un petit
   JavaScript (ex. une liste de livres en JSON lue par les deux pages) ou une étape de génération :
   ton avis et ton accord avant toute chose. En attendant, on continue à la main.
