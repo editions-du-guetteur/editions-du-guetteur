@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css?v=2026-11-23c">
 </head>
 <body>
   <header class="entete">
@@ -70,10 +70,22 @@
 
     <section class="livre-suite" aria-labelledby="titre-extraits">
       <h2 id="titre-extraits">Extraits</h2>
-      <figure class="pages-livre">
-        <img src="../img/aquarellistes-pages.jpg" alt="Double page du livre : courts textes sur l'aquarelle, une nature morte aux figues et un paysage de palmiers" width="1400" height="984" loading="lazy">
-        <figcaption>Une double page du livre.</figcaption>
-      </figure>
+      <!-- Livre à feuilleter (CSS seul, sans JavaScript) : une case par feuille, la page de droite
+           tourne la feuille, la page de gauche revient en arrière. Images dans img/aquarellistes-feuillet-*.jpg
+           (pages de 695 × 984 px). Pour ajouter une feuille : une case, une <span class="feuille fN">, et les
+           règles fN dans style.css (« Livre à feuilleter »). -->
+      <div class="feuilletage feuilletage-extraits">
+        <input type="checkbox" id="tourner-1" class="tourner-case">
+        <input type="checkbox" id="tourner-2" class="tourner-case">
+        <input type="checkbox" id="tourner-3" class="tourner-case">
+        <div class="livre-3d" role="group" aria-label="Livre à feuilleter : cliquez sur la page de droite pour tourner, sur la page de gauche pour revenir">
+          <span class="page page-droite"><img src="../img/aquarellistes-feuillet-3-droite.jpg" alt="" loading="lazy"></span>
+          <span class="feuille f1"><label for="tourner-1" class="recto"><img src="../img/aquarellistes-couverture.jpg" alt="" loading="lazy"></label><label for="tourner-1" class="verso"><img src="../img/aquarellistes-feuillet-1-gauche.jpg" alt="" loading="lazy"></label></span>
+          <span class="feuille f2"><label for="tourner-2" class="recto"><img src="../img/aquarellistes-feuillet-1-droite.jpg" alt="" loading="lazy"></label><label for="tourner-2" class="verso"><img src="../img/aquarellistes-feuillet-2-gauche.jpg" alt="" loading="lazy"></label></span>
+          <span class="feuille f3"><label for="tourner-3" class="recto"><img src="../img/aquarellistes-feuillet-2-droite.jpg" alt="" loading="lazy"></label><label for="tourner-3" class="verso"><img src="../img/aquarellistes-feuillet-3-gauche.jpg" alt="" loading="lazy"></label></span>
+        </div>
+        <p class="feuilletage-aide"><span class="si-ferme">Cliquez sur la couverture pour ouvrir le livre</span><span class="si-ouvert">Page de droite : tourner la page · page de gauche : revenir en arrière</span></p>
+      </div>
       <div class="extraits">
         <blockquote><p>Une couleur n'existe que par rapport aux autres et nécessite au moins un fond pour se définir. Elle est sociale.</p></blockquote>
         <blockquote><p>Sur un chevalet, le châssis est vertical car l'huile colle à la toile. La planche de l'aquarelliste est oblique, pour que l'eau coule sur le papier sans rigoler.<br>Face à la toile, le peintre se penche pour voir le sujet, mais l'aquarelliste n'a juste qu'à lever la tête. Leur position les oppose déjà.</p></blockquote>

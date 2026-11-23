@@ -78,7 +78,7 @@ a:hover { color: var(--accent-fonce); }
   text-transform: uppercase;
   color: var(--encre-douce);
 }
-.nav { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; font-family: var(--sans); font-size: .9rem; }
+.nav { display: flex; flex-wrap: wrap; gap: .4rem 1.8rem; font-family: var(--sans); font-size: 1.15rem; }
 .nav a { color: var(--encre-douce); text-decoration: none; }
 .nav a:hover, .nav a[aria-current] { color: var(--encre); }
 
@@ -160,7 +160,7 @@ a:hover { color: var(--accent-fonce); }
   transition: transform .25s ease, box-shadow .25s ease;
 }
 .feuilleter:hover img { transform: translateY(-3px); box-shadow: 0 18px 30px -12px rgba(31,29,26,.35); }
-.feuilleter-legende { display: block; font-family: var(--sans); font-size: .95rem; margin-top: .8rem; }
+.feuilleter-legende { display: block; font-family: var(--sans); font-size: .95rem; margin-top: 3.2rem; }
 .feuilleter:hover .feuilleter-legende { color: var(--accent-fonce); text-decoration: underline; text-underline-offset: 3px; }
 
 /* Accueil : prochaine publication */
@@ -620,3 +620,64 @@ main > .a-la-une .couverture-img,
   .a-venir { padding: 2.5rem 0 3rem; }
   main > .intro-courte { padding-top: 2.5rem; }
 }
+
+/* ==========================================================================
+   Livre à feuilleter (23 nov. 2026), accueil et catalogue, CSS seul.
+   Une case à cocher par feuille ; cochée, la feuille tourne (rotateY).
+   Les feuilles non tournées s'empilent à droite (la 1re dessus), les feuilles
+   tournées à gauche (la dernière dessus) : z-index changé à mi-rotation.
+   ========================================================================== */
+.feuilletage { max-width: 760px; margin: 3rem auto 5rem; text-align: center; }
+.tourner-case { position: absolute; opacity: 0; pointer-events: none; }
+.livre-3d {
+  display: block; position: relative;
+  width: 100%; aspect-ratio: 1390 / 984;
+  perspective: 2400px;
+  transform: translateX(-25%);          /* livre fermé : couverture au centre */
+  transition: transform 1s cubic-bezier(.4,.1,.2,1);
+}
+#tourner-1:checked ~ .livre-3d { transform: none; }
+.livre-3d .page, .livre-3d .feuille { position: absolute; top: 0; left: 50%; width: 50%; height: 100%; }
+.livre-3d img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.page-droite { box-shadow: 0 30px 50px -25px rgba(0,0,0,.55); z-index: 1; }
+.page-droite::after, .recto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.18), transparent 12%); pointer-events: none; }
+.feuille {
+  transform-origin: left center; transform-style: preserve-3d;
+  transition: transform 1.2s cubic-bezier(.4,.1,.2,1), z-index 0s .6s;
+}
+.recto, .verso { position: absolute; inset: 0; cursor: pointer; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.f1 .recto::after { background: none; }
+.recto { box-shadow: 0 30px 50px -25px rgba(0,0,0,.5); }
+.verso { transform: rotateY(180deg); }
+.verso::after { content: ""; position: absolute; inset: 0; background: linear-gradient(270deg, rgba(0,0,0,.18), transparent 12%); pointer-events: none; }
+/* Jusqu'à 10 feuilles (couverture comprise) : au-delà, ajouter des lignes fN sur le même modèle */
+.f1 { z-index: 29; }
+.f2 { z-index: 28; }
+.f3 { z-index: 27; }
+.f4 { z-index: 26; }
+.f5 { z-index: 25; }
+.f6 { z-index: 24; }
+.f7 { z-index: 23; }
+.f8 { z-index: 22; }
+.f9 { z-index: 21; }
+.f10 { z-index: 20; }
+#tourner-1:checked ~ .livre-3d .f1 { transform: rotateY(-180deg); z-index: 41; }
+#tourner-2:checked ~ .livre-3d .f2 { transform: rotateY(-180deg); z-index: 42; }
+#tourner-3:checked ~ .livre-3d .f3 { transform: rotateY(-180deg); z-index: 43; }
+#tourner-4:checked ~ .livre-3d .f4 { transform: rotateY(-180deg); z-index: 44; }
+#tourner-5:checked ~ .livre-3d .f5 { transform: rotateY(-180deg); z-index: 45; }
+#tourner-6:checked ~ .livre-3d .f6 { transform: rotateY(-180deg); z-index: 46; }
+#tourner-7:checked ~ .livre-3d .f7 { transform: rotateY(-180deg); z-index: 47; }
+#tourner-8:checked ~ .livre-3d .f8 { transform: rotateY(-180deg); z-index: 48; }
+#tourner-9:checked ~ .livre-3d .f9 { transform: rotateY(-180deg); z-index: 49; }
+#tourner-10:checked ~ .livre-3d .f10 { transform: rotateY(-180deg); z-index: 50; }
+.tourner-case:focus-visible ~ .livre-3d { outline: 2px solid var(--or); outline-offset: 6px; }
+.feuilletage-aide { font-family: var(--sans); font-size: .9rem; color: var(--encre-douce); margin: 1.6rem 0 .4rem; }
+.feuilletage-aide .si-ouvert { display: none; }
+#tourner-1:checked ~ .feuilletage-aide .si-ouvert { display: inline; }
+#tourner-1:checked ~ .feuilletage-aide .si-ferme { display: none; }
+.feuilletage .feuilleter-legende { margin-top: .4rem; display: inline-block; }
+@media (prefers-reduced-motion: reduce) { .livre-3d, .feuille { transition: none; } }
+
+/* Page du livre : le livre à feuilleter sous le titre « Extraits » */
+.feuilletage-extraits { margin: 1.5rem auto 3rem; }

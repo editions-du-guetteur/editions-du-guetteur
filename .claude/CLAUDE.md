@@ -53,7 +53,7 @@ d'hébergement OVH la moins chère.
 | `livres/<titre>.html` | Une page par livre, avec le bouton « Acheter » |
 | `a-propos.html` | La maison + contact |
 | `cgv.html`, `mentions-legales.html` | Obligatoires pour vendre en ligne |
-| `style.css` | Le seul fichier de style |
+| `style.css` | Le seul fichier de style. Chaque page le charge avec `style.css?v=AAAA-MM-JJ` : changer cette date dans **toutes** les pages après une modification de `style.css`, sinon les navigateurs gardent l'ancienne version |
 | `img/` | Couvertures et photos |
 
 Le paiement passe par un **Payment Link Stripe** par livre : le bouton « Acheter » pointe vers une URL
@@ -124,7 +124,7 @@ le webhook en place, chaque push sur `main` est en ligne en quelques instants.**
 
 ## Ajouter un livre
 
-Demander à Thierry : titre, auteur, prix TTC, tirage, ISBN, couverture (image), texte de présentation, quelques lignes sur l'auteur, des extraits (texte et/ou image d'une double page), la bibliographie de l'auteur (« Du même auteur »),
+Demander à Thierry : titre, auteur, prix TTC, tirage, ISBN, couverture (image), texte de présentation, quelques lignes sur l'auteur, des extraits (courts textes) et **quelques doubles pages intérieures** (scans ou photos, au moins deux, avec un peu de marge autour du livre) pour le livre à feuilleter, la bibliographie de l'auteur (« Du même auteur »),
 et le lien Stripe (ou le créer avec lui, voir plus bas).
 
 1. Copier `livres/les-aquarellistes-anonymes.html` vers `livres/<titre-en-minuscules-avec-tirets>.html`
@@ -134,7 +134,15 @@ et le lien Stripe (ou le créer avec lui, voir plus bas).
    besoin) et remplacer la couverture dessinée en CSS par un `<img>` avec un `alt`.
    Sur chaque couverture, la mention de l’éditeur suit le modèle des *Aquarellistes* : « Éditions » puis « DU GUETTEUR » en dessous, centrés en bas, en Garamond (choix du 23 nov. 2026 ; classes `c-editeur` et `c-maison` pour les couvertures dessinées).
 3. Demander la rubrique (Arts, Nouvelles et récits, Traits d'esprit ou Documents) et ajouter un bloc `<a class="fiche">` **en tête** de cette rubrique dans `catalogue.html` (retirer « Prochainement » si elle était vide).
-3 bis. Si c'est la dernière parution : remplacer le livre du bloc `a-la-une` dans `index.html` (lien, couverture, titre, auteur, rubrique, citation `citation-une`, tirage et prix `rarete`, bouton « Acheter ») et l'image du lien `feuilleter` (double page).
+3 bis. Si c'est la dernière parution : remplacer le livre du bloc `a-la-une` dans `index.html` (lien, couverture, titre, auteur, rubrique, citation `citation-une`, tirage et prix `rarete`, bouton « Acheter ») et le livre à feuilleter (bloc `feuilletage`, présent aussi sous « Extraits » sur la page du livre, et non dans le catalogue — choix du 23 nov. 2026 : pages de 695 × 984 px dans `img/<livre>-feuillet-N-gauche|droite.jpg`, une case + une feuille par double page, règles `fN` dans `style.css`).
+3 ter. **Livre à feuilleter, sous « Extraits » (règle de Thierry du 23 nov. 2026, pour tous les livres)** : sur la page du
+   livre, la section « Extraits » commence par le livre à feuilleter, puis les courts textes. Copier le bloc `feuilletage`
+   de `livres/les-aquarellistes-anonymes.html`. Préparer les images : redresser les scans (souvent couchés), couper à la
+   reliure, une image par page de 695 × 984 px, nommées `img/<livre>-feuillet-N-gauche.jpg` / `-droite.jpg` (N = numéro
+   de la double page). Première feuille : recto = couverture, verso = page de gauche de la 1re double page ; feuille N+1 :
+   recto = page de droite de la double page N, verso = page de gauche de la double page N+1 ; la `page-droite` du fond =
+   page de droite de la dernière double page. Une case `tourner-N` par feuille ; `style.css` gère jusqu'à 10 feuilles.
+   Pas de livre à feuilleter dans le catalogue (choix du 23 nov. 2026). Sans doubles pages, garder les seuls textes.
 4. Vérifier dans le navigateur, sur mobile et sur ordinateur, montrer à Thierry, puis commit et push.
 
 ## Créer le lien Stripe d'un livre (Thierry le fait, tu le guides pas à pas)
@@ -175,6 +183,9 @@ Faire un premier essai en **mode test** de Stripe avant d'utiliser le vrai lien.
 
 - Nouveau style « Vitrine » sur tout le site (ivoire, bleu nuit, or), en CSS seul : le bandeau pleine largeur est fait
   avec `box-shadow: 0 0 0 100vmax` + `clip-path: inset(0 -100vmax)`, et utilise `:has()` pour l'accueil. À relire.
+- « Feuilleter le livre » (accueil + section « Extraits » de la page du livre) : livre en 3D qui se feuillette, CSS seul (cases à cocher,
+  `rotateY`, `z-index` changé à mi-rotation). Trois doubles pages des *Aquarellistes* (dont deux scans de Thierry, bord
+  extérieur des pages de droite coupé au scan). À relire.
 - *Repas de Dessins* renommé *Festin de dessins* (page et image renommées) ; livres tests retirés du catalogue ;
   mention de l'éditeur harmonisée sur les couvertures (modèle des *Aquarellistes*).
 
