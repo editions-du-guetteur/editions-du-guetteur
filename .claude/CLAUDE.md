@@ -162,7 +162,7 @@ Faire un premier essai en **mode test** de Stripe avant d'utiliser le vrai lien.
 - [x] Vraie couverture des *Aquarellistes Anonymes* (`img/aquarellistes-couverture.jpg`)
 - [x] *Aquarellistes Anonymes* : texte de présentation (brouillon n° 1 choisi le 9 nov. 2026), texte « L'auteur » et « Bibliographie » (6 nov. 2026), ISBN : 979-10-984927-0-9
 - [x] *Aquarellistes Anonymes* : section « Extraits » = livre à feuilleter (3 doubles pages, 23 nov. 2026) + trois courts textes
-- [ ] *Aquarellistes Anonymes* : Thierry rescanne les deux doubles pages « Album à colorier » et « Garder la pose » avec de la marge (bord extérieur des pages de droite coupé), puis remplacer `img/aquarellistes-feuillet-2-*` et `-3-*`
+- [x] *Aquarellistes Anonymes* : les doubles pages du livre à feuilleter remplacées le 24 nov. 2026 par les pages 6-7, 22-23 et 46-47 de la maquette (PDF « PDFCAUMON… » du Bureau), ce qui règle le problème des scans coupés
 - [x] Nouvelle structure : menu Accueil / Les Éditions du Guetteur / Catalogue, accueil = dernière publication, `catalogue.html` en trois rubriques (à faire relire par Martin)
 - [x] Accueil : encadré « Prochaine publication » (*Festin de dessins*, Jean-Marie Leydier, Arts, image `img/festin-de-dessins-couverture.jpg`, sortie le 15 déc. 2026)
 - [ ] *Festin de dessins* (ancien titre *Repas de Dessins*, changé le 23 nov. 2026) : page `livres/festin-de-dessins.html` créée (modèle « à paraître », 6 nov. 2026) ; reste prix TTC, tirage, format, ISBN, présentation, lien Stripe, vraie couverture (l’image actuelle n’est qu’un assemblage de trois dessins ; y mettre la mention « Éditions / DU GUETTEUR » comme sur les autres couvertures, décision du 23 nov. 2026)
