@@ -564,7 +564,7 @@ main > .a-la-une .couverture-img,
   color: var(--ivoire);
   border-top: 1px solid rgba(201, 164, 92, .35);   /* fin filet doré entre les deux bandeaux */
   padding: 3.5rem 0 4rem;
-  margin-top: 0;
+  margin-top: 1.5rem;   /* léger espace ivoire entre les deux bandeaux (24 nov. 2026) */
 }
 .a-venir .titre-section {
   font-family: var(--sans);
